@@ -1,13 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="{{url_for('static',filename='style.css')}}">
+    <link rel="icon" href="{{url_for('static',filename='favicon.ico')}}" type="image/x-icon">
+    
     <title>Home - Paws Rescue Center</title>
-    <h1 style="text-align: center;">Paws Rescue Center 🐾</h1>
+    
 </head>
 <body>
-    
+    <h1 id="title" style="text-align: center;">Paws Rescue Center 🐾</h1>
+    <table>
+        <head>
+            <tr style="font-weight: bolder;">
+                <td>
+                    Image
+                </td>
+                <td>
+                    Name
+                </td>
+                <td>
+                    Age
+                </td>
+                <td>
+                    Bio
+                </td>
+            </tr>
+        </head>
+        <body>
+            {% for i in pets %}
+            <tr>
+                <td>
+                    <img width="100" src="{{url_for('static',filename=i['id']|string +'.jpg')}}">
+                </td>
+                <td>
+                    {{i["name"]}}
+                </td>
+                <td>
+                    {{i["age"]}}
+                </td>
+                <td>
+                    {{i["bio"]}}
+                </td>
+            </tr>
+            {% endfor %}
+        </body>
+    </table>
 </body>
 </html>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{{url_for('static',filename='style.css')}}">
+    <title>Details of {{pet["name"]}}</title>
+</head>
+<body>
+    <div id="detail" style="display: flex;">
+        <img id="img-detail" width="400"  src="{{url_for('static',filename=pet['id']|string +'.jpg')}}">
+        <div style="padding: 10px; padding-left: 20px; float: left;">
+            <h1 class="title">{{ pet["name"] }}</h1>
+            <p><b>Age: &nbsp;</b> {{pet["age"]}}</p>
+            <p><b>Bio: &nbsp;</b> {{pet["bio"]}}</p>    
+        </div>
+    </div>
+</body>
+</html>

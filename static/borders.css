@@ -1,0 +1,15 @@
+body {
+    border: 5px solid red;
+    padding: 5px;
+}
+
+h1 {
+    text-align: center;
+    border: 6px solid green;
+}
+
+p {
+    border: 2px solid red;
+    padding: 5px;
+    margin: 5px;
+}

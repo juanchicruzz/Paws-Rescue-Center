@@ -1,0 +1,27 @@
+#title {
+    padding: 10px;
+    color: #464646;
+}
+body {
+    background: burlywood;
+}
+
+table {
+    width: 100%;
+    text-align: center;
+    white-space: initial;
+    table-layout:auto;    
+}
+
+th, td {
+    padding: 8px;
+    border-bottom: 1px solid rgb(143, 119, 231);
+    text-decoration: solid;
+    min-width: 100px;
+    
+}
+#img-detail{
+    border: 1px solid black;
+    padding: 2px;
+    margin-top: 10px;
+}
