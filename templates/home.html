@@ -1,15 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    
-    <link rel="stylesheet" href="{{url_for('static',filename='style.css')}}">
-    <link rel="icon" href="{{url_for('static',filename='favicon.ico')}}" type="image/x-icon">
-    
-    <title>Home - Paws Rescue Center</title>
-    
-</head>
-<body>
-    <h1 id="title" style="text-align: center;">Paws Rescue Center 🐾</h1>
+{% extends "base.html" %}
+
+{%block title%}Home{%endblock%}
+
+{%block body%}
+<h1 id="title" style="text-align: center;">Paws Rescue Center 🐾</h1>
     <table>
         <head>
             <tr style="font-weight: bolder;">
@@ -46,5 +40,4 @@
             {% endfor %}
         </body>
     </table>
-</body>
-</html>
+{%endblock%}

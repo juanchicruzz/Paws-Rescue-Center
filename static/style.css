@@ -1,9 +1,37 @@
+*{
+    font-family: 'Lilita One', cursive;
+}
+#error{
+    color: tomato;
+    list-style: none;
+    text-align: center;
+}
+#formbox{
+    text-align: center;
+    display: flex;
+    flex-grow: 1;
+}
+#espacio{
+    width: 43%;
+}
+#recuadro{
+    border: black solid 4px;
+    border-radius: 4px;
+    padding:20px;
+}
 #title {
     padding: 10px;
     color: #464646;
 }
+#nav{
+    display: flex;
+    justify-items:auto;
+    padding: 10px;
+    float:right;
+}
+
 body {
-    background: burlywood;
+    background: #bbb2e9;
 }
 
 table {
@@ -15,7 +43,7 @@ table {
 
 th, td {
     padding: 8px;
-    border-bottom: 1px solid rgb(143, 119, 231);
+    border-bottom: 1px solid rgb(0, 0, 0);
     text-decoration: solid;
     min-width: 100px;
     

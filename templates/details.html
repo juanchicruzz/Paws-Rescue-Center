@@ -1,10 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <link rel="stylesheet" href="{{url_for('static',filename='style.css')}}">
-    <title>Details of {{pet["name"]}}</title>
-</head>
-<body>
+{% extends "base.html" %}
+
+{%block title%}Details{%endblock%}
+
+{%block body%}
     <div id="detail" style="display: flex;">
         <img id="img-detail" width="400"  src="{{url_for('static',filename=pet['id']|string +'.jpg')}}">
         <div style="padding: 10px; padding-left: 20px; float: left;">
@@ -13,5 +11,4 @@
             <p><b>Bio: &nbsp;</b> {{pet["bio"]}}</p>    
         </div>
     </div>
-</body>
-</html>
+{%endblock%}

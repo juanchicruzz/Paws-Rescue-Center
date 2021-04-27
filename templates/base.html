@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{{url_for('static',filename='style.css')}}">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Lilita+One&display=swap" rel="stylesheet">
+    <title>{%block title%} {%endblock%} - Paws Rescue Center</title>
+    <nav style="padding-bottom: 10px;">
+        <div style="float: left;"><a style="font-size:x-large;">🐶🐱</a></div>
+        {% if session["user"] %}
+        <a id="nav" style="margin-left: 10px;"  href="{{url_for('logout')}}">Log Out</a>
+        {%endif%}
+        {% if not session["user"] %}
+        <a id="nav" style="margin-left: 10px;"  href="{{url_for('login')}}">Log In</a>
+        <a id="nav" style="margin-left: 10px;"  href="{{url_for('signUp')}}">Sign Up</a>
+        {%endif%}
+        <a id="nav" style="margin-left: 10px;" href="{{url_for('about')}}">About</a>
+        <a id="nav" style="margin-left: 10px;" href="{{url_for('home')}}">Home</a>
+    </nav>
+    {%block head%}
+
+    {%endblock%}
+</head>
+<body>
+    {%block body%}
+
+    {%endblock%}
+</body>
+</html>
