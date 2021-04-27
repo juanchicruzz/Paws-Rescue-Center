@@ -3,12 +3,12 @@
 {%block title%}Details{%endblock%}
 
 {%block body%}
-    <div id="detail" style="display: flex;">
-        <img id="img-detail" width="400"  src="{{url_for('static',filename=pet['id']|string +'.jpg')}}">
+    <div id="detail" style="display: flex;padding-top: 30px;">
+        <img id="img-detail" width="400" src="{{url_for('static',filename=pet['id']|string +'.jpg')}}">
         <div style="padding: 10px; padding-left: 20px; float: left;">
-            <h1 class="title">{{ pet["name"] }}</h1>
-            <p><b>Age: &nbsp;</b> {{pet["age"]}}</p>
-            <p><b>Bio: &nbsp;</b> {{pet["bio"]}}</p>    
+            <h1 class="title">{{ pet.name }}</h1>
+            <p><b>Age: &nbsp;</b> {{ pet.age }}</p>
+            <p><b>Bio: &nbsp;</b> {{ pet.bio }}</p>    
         </div>
     </div>
 {%endblock%}

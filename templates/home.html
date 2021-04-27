@@ -28,13 +28,13 @@
                     <img width="100" src="{{url_for('static',filename=i['id']|string +'.jpg')}}">
                 </td>
                 <td>
-                    {{i["name"]}}
+                    {{i.name}}
                 </td>
                 <td>
-                    {{i["age"]}}
+                    {{i.age}}
                 </td>
                 <td>
-                    {{i["bio"]}}
+                    {{i.bio}}
                 </td>
             </tr>
             {% endfor %}
