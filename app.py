@@ -4,7 +4,7 @@ from flask.globals import session
 from flask.helpers import flash, url_for
 from flask.wrappers import Request
 import sqlalchemy
-from forms import signUpForm, loginForm
+from forms import signUpForm, loginForm, petForm
 from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
@@ -118,12 +118,27 @@ def about():
     return render_template("about.html");
 
 
-@app.route('/details/<int:id>')
+@app.route('/details/<int:id>',methods=["GET", "POST"])
 def details(id):
     pet = Pet.query.get(id) 
+    petform = petForm()
+    if petform.validate_on_submit():
+        pet.name = petform.name.data
+        pet.age = petform.age.data 
+        pet.bio = petform.bio.data 
+        try:
+            db.session.commit()
+        except Exception as e:
+            db.session.rollback()
+            return render_template("details.html", pet = pet,message=e);
+        return render_template("details.html", pet = pet,petform=petform);
+    if petform.errors:
+        return render_template("details.html", pet = pet,petform=petform);
     if pet is None: 
         abort(404, description="No Pet was Found with the given ID")
-    return render_template("details.html", pet = pet)
+    elif request.method == "GET":
+        petform = petForm(obj=pet)
+    return render_template("details.html", pet = pet,petform=petform);
      
 
 

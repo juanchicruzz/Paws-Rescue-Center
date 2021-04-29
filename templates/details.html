@@ -5,10 +5,57 @@
 {%block body%}
     <div id="detail" style="display: flex;padding-top: 30px;">
         <img id="img-detail" width="400" src="{{url_for('static',filename=pet['id']|string +'.jpg')}}">
-        <div style="padding: 10px; padding-left: 20px; float: left;">
-            <h1 class="title">{{ pet.name }}</h1>
-            <p><b>Age: &nbsp;</b> {{ pet.age }}</p>
-            <p><b>Bio: &nbsp;</b> {{ pet.bio }}</p>    
+        <div style="display:flex;flex-direction: column;">
+            <div style="padding: 10px; padding-left: 20px; float: left;">
+                <h1 class="title">{{ pet.name }}</h1>
+                <p><b>Age: &nbsp;</b> {{ pet.age }}</p>
+                <p><b>Bio: &nbsp;</b> {{ pet.bio }}</p>    
+            </div>
+            {% if petform %}
+            <form id="formbox" style="flex-direction: column;text-align: left;padding-left: 20px;" action="{{url_for('details',id=pet.id)}}" method="POST">
+                {{petform.name.label}}
+                <br>
+                {{petform.name}}
+                {%if petform.name.errors%}
+                <br>
+                {%for e in petform.name.errors%}
+                <b id="error" >
+                    {{e}}
+                </b>
+                {%endfor%}
+                {%endif%}
+                {{petform.age.label}}
+                <br>
+                {{petform.age}}
+                {%if petform.age.errors%}
+                <br>
+                {%for e in petform.age.errors%}
+                <b id="error" >
+                    {{e}}
+                </b>
+                {%endfor%}
+                {%endif%}
+                {{petform.bio.label}}
+                <br>
+                {{petform.bio}}
+                {%if petform.bio.errors%}
+                <br>
+                {%for e in petform.bio.errors%}
+                <b id="error" >
+                    {{e}}
+                </b>
+                {%endfor%}
+                {%endif%}
+                <br>
+                {{ petform.csrf_token }}
+                <div style="padding-top: 4px;">{{ petform.submit }}</div>
+            </form>
+            {%endif%}
+            {%if message%}
+            <div>
+                <b>{{message}}</b>
+            </div>
+            {%endif%}
         </div>
     </div>
 {%endblock%}
