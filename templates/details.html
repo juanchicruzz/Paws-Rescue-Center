@@ -4,7 +4,13 @@
 
 {%block body%}
     <div id="detail" style="display: flex;padding-top: 30px;">
-        <img id="img-detail" width="400" src="{{url_for('static',filename=pet['id']|string +'.jpg')}}">
+        <div>
+            <img id="img-detail" width="400" src="{{url_for('static',filename=pet['id']|string +'.jpg')}}">
+            <form id="btn-delete" action="{{ url_for('deletepet',id=pet.id) }}" method="POST">
+                <button type="submit" style="background-color: red;border: solid black;border-radius: 10%; font-weight: bolder; font-size: larger;">Delete</button>
+            </form>
+        </div>
+        
         <div style="display:flex;flex-direction: column;">
             <div style="padding: 10px; padding-left: 20px; float: left;">
                 <h1 class="title">{{ pet.name }}</h1>

@@ -21,8 +21,8 @@
 }
 #title {
     padding: 10px;
-    color: #464646;
-}
+    color: #F2DE4B;
+    text-shadow: 2px 0 0 rgb(0, 0, 0), -2px 0 0 rgb(0, 0, 0), 0 2px 0 rgb(0, 0, 0), 0 -2px 0 rgb(0, 0, 0), 1px 1px rgb(0, 0, 0), -1px -1px 0 rgb(0, 0, 0), 1px -1px 0 rgb(0, 0, 0), -1px 1px 0 rgb(0, 0, 0);}
 #nav{
     display: flex;
     justify-items:auto;

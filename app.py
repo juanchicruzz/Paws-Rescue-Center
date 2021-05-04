@@ -140,7 +140,17 @@ def details(id):
         petform = petForm(obj=pet)
     return render_template("details.html", pet = pet,petform=petform);
      
+@app.route("/deletepet/<int:id>", methods=['POST'])
+def deletepet(id):
+    pet = Pet.query.get(id)
+    db.session.delete(pet)
 
+    try:
+        db.session.commit()
+    except Exception as e:
+        db.session.rollback()
+    
+    return redirect(url_for("home"));
 
 
 
